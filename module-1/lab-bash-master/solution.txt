@@ -74,4 +74,8 @@ BONUS
 
 * echo $name
 
+* mkdir $name
+
+* rmdir $name
+
 
