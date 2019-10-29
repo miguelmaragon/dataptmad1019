@@ -66,3 +66,12 @@ touch solution.txt
 * grep "et" ~/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/lorem/at.txt
 
 * grep -R "et" ~/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/
+
+
+BONUS
+
+* name=miguelmaragon
+
+* echo $name
+
+
