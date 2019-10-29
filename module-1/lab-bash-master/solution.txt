@@ -1,0 +1,68 @@
+touch solution.txt
+
+* echo "Hello World"
+
+* mkdir new_dir
+
+* rm -rf new_dir
+
+*
+  1) We need to locate in the lorem folder
+	cd lorem/ 
+  2) 
+	cp sed.txt /home/miguelmaragon/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/lorem-copy
+
+*
+  1) We need to know the rest of the files located in the lorem folder
+	cd lorem/
+	ll
+  2) 
+	cp lorem.txt at.txt /home/miguelmaragon/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/lorem-copy
+
+*
+  1)
+	cd lorem/
+  2)
+	cat sed.txt
+
+* cat at.txt lorem.txt
+
+* 
+  1) Locate folder
+	cd lorem-copy/
+  2) Show
+	head -3 sed.txt
+
+*
+  1) Locate folder
+	cd lorem-copy/
+  2) Show
+	tail -3 sed.txt
+
+* 
+  1) Locate folder
+	cd lorem-copy/
+  2) Add info into the file
+	echo "Homo homini lupus." >> sed.txt
+
+*
+  1) Locate folder
+	cd lorem-copy/
+  2) Show
+	tail -3 sed.txt
+
+* sed -i 's/et/ET/g' "at.txt"
+
+* w
+
+* pwd
+
+* find . -type f -name "*.txt"
+
+* ls -dq lorem* | wc -l
+
+* grep -w "et" ~/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/lorem/at.txt
+
+* grep "et" ~/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/lorem/at.txt
+
+* grep -R "et" ~/Documentos/IRONHACK/dataptmad1019/module-1/lab-bash-master/
