@@ -55,8 +55,10 @@ big_frame = pd.DataFrame(pd.concat([pd.read_csv("/home/miguelmaragon/Documentos/
 print(big_frame.head(10))
 
 #8. Use a list comprehension to select and print the column numbers for columns from the data set whose median is less than 0.48.
-df = [x for x in big_frame.median().values if x < 0.48]
-print(df)
+#df = [x for x in big_frame.median().values if x < 0.48]
+#print(df)
+df1 = [col for col in big_frame._get_numeric_data() if big_frame[col].median() < 0.48]
+print(df1)
 
 #9. Use a list comprehension to add a new column (20) to the data frame whose values are the values in column 19 minus 0.1. Display the top 10 rows of the resulting data frame.
 big_frame['20'] = big_frame['19']-0.1
