@@ -42,3 +42,26 @@ b = np.array([[[0.55867166, 0.06210792, 0.08147297],
 #5. Add a condition to the list comprehension above so that the last value in each subarray is printed, but only if it is less than or equal to 0.5.
 lst = [c for x in b for y in x for c in y if c <= 0.5]
 print(lst)
+
+#6. Use a list comprehension to select and print the names of all CSV files in the /data directory.
+lst = []
+
+lst = [file for file in os.listdir("/home/miguelmaragon/Documentos/IRONHACK/dataptmad1019/module-1/lab-list-comprehensions/data") if file.find('.csv') != -1]
+
+print(lst)
+
+#7. Use a list comprehension and the Pandas read_csv and concat methods to read all CSV files in the /data directory and combine them into a single data frame. Display the top 10 rows of the resulting data frame.
+big_frame = pd.DataFrame(pd.concat([pd.read_csv("/home/miguelmaragon/Documentos/IRONHACK/dataptmad1019/module-1/lab-list-comprehensions/data/" + filename) for filename in [f for f in listdir("/home/miguelmaragon/Documentos/IRONHACK/dataptmad1019/module-1/lab-list-comprehensions/data") if f.endswith('.csv')]], ignore_index=True))
+print(big_frame.head(10))
+
+#8. Use a list comprehension to select and print the column numbers for columns from the data set whose median is less than 0.48.
+df = [x for x in big_frame.median().values if x < 0.48]
+print(df)
+
+#9. Use a list comprehension to add a new column (20) to the data frame whose values are the values in column 19 minus 0.1. Display the top 10 rows of the resulting data frame.
+big_frame['20'] = big_frame['19']-0.1
+print(big_frame.head(10))
+
+#10. Use a list comprehension to extract and print all values from the data set that are between 0.7 and 0.75.
+lst = [x for row in big_frame.values for x in row if x > 0.7 and x < 0.75]
+print(lst)
