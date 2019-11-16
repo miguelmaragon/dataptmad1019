@@ -1,69 +1,81 @@
-#1. Import the NUMPY package under the name np.
+# 1. Import the NUMPY package under the name np.
+print("1")
+import numpy as np
 
+# 2. Print the NUMPY version and the configuration.
+print("2")
+np.version.version
+print(np.__version__)
 
-
-#2. Print the NUMPY version and the configuration.
-
-
-
-#3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
+# 3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
+print("3")
+a = np.random.random((2, 3, 5))
 
+# 4. Print a.
+print("4")
+print(a)
 
+# 5. Create a 5x2x3 3-dimensional array with all values equaling 1.
+# Assign the array to variable "b"
+print("5")
+b = np.ones((5, 2, 3))
 
-#4. Print a.
+# 6. Print b.
+print("6")
+print(b)
 
+# 7. Do a and b have the same size? How do you prove that in Python code?
+print("7")
+print(a.size)
+print(b.size)
+print(b.shape)
+# yes, that has the same size
 
+# 8. Are you able to add a and b? Why or why not?
+print("8")
+try:
+    print(a + b)
+except:
+    print("Error in a + b")
+# you can not add because the shape of matrix are differents
 
-#5. Create a 5x2x3 3-dimensional array with all values equaling 1.
-#Assign the array to variable "b"
+# 9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
+print("9")
+c = b.transpose(1, 2, 0)
+print(c)
+print(c.shape)
+# 10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
+print("10")
+d = a + c
 
+# 11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+print("11")
+print(d)
 
+# 12. Multiply a and c. Assign the result to e.
+print("12")
+e = a * c
 
-#6. Print b.
+# 13. Does e equal to a? Why or why not?
+print("13")
+print(np.array_equal(a, e))
+# Yes the matrix a and e are equals
 
+# 14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
+print("14")
+d_max = d.max()
+d_min = d.min()
+d_mean = d.mean()
 
+print(d_max)
+print(d_min)
+print(d_mean)
 
-#7. Do a and b have the same size? How do you prove that in Python code?
-
-
-
-
-#8. Are you able to add a and b? Why or why not?
-
-
-
-#9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
-
-
-#10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-
-
-#11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
-
-
-
-#12. Multiply a and c. Assign the result to e.
-
-
-
-#13. Does e equal to a? Why or why not?
-
-
-
-
-#14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
-
-
-
-#15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
-
-
+# 15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
+print("15")
+f = np.empty([2,3,5])
+print(f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -74,8 +86,23 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
-
+print("16")
+lista = [j for i in d for k in i for j in k]
+lista1 = []
+for m in lista:
+    if d_max > m > d_mean:
+        lista1.append(75)
+    if d_mean > m > d_min:
+        lista1.append(25)
+    elif d_mean == m:
+        lista1.append(50)
+    elif d_min == m:
+        lista1.append(0)
+    elif d_max == m:
+        lista1.append(100)
+f = np.asarray(lista1)
+f = f.reshape(2, 3, 5)
+print(f)
 
 
 """
@@ -98,8 +125,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
-
+print("17")
+print(d)
+print(f)
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
@@ -112,3 +140,21 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+print("18")
+lista2 = []
+for m in lista:
+    if d_max > m > d_mean:
+        lista2.append('D')
+    if d_mean > m > d_min:
+        lista2.append('B')
+    elif d_mean == m:
+        lista2.append('C')
+    elif d_min == m:
+        lista2.append('A')
+    elif d_max == m:
+        lista2.append('E')
+g = np.asarray(lista2)
+g = g.reshape(2, 3, 5)
+
+print(d)
+print(g)
