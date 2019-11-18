@@ -66,9 +66,9 @@ SELECT
 	a.au_id as AUTHOR_ID,
 	a.au_lname as LAST_NAME,
 	a.au_fname as FIRST_NAME,
-	case 
-		WHEN ta.title_id is null then 0
-		else sum(s.qty)
+	CASE 
+		WHEN ta.title_id is NULL then 0 
+		ELSE sum(s.qty) 
 	END as TOTAL
 FROM authors a
 left join titleauthor ta on a.au_id = ta.au_id 
@@ -82,3 +82,10 @@ SELECT
 	a.au_id as AUTHOR_ID,
 	a.au_lname as LAST_NAME,
 	a.au_fname as FIRST_NAME,
+	sum(r.royalty) as PROFIT
+FROM authors a
+left join titleauthor ta on a.au_id = ta.au_id 
+left join roysched r on r.title_id = ta.title_id
+GROUP BY a.au_id, a.au_lname, a.au_fname
+ORDER BY PROFIT DESC
+LIMIT 3
