@@ -8,7 +8,7 @@ expects.
 The code is very long and messy. Refactor it according to what you have learned about
 code simplicity and efficiency.
 """
-
+"""
 print('Welcome to this calculator!')
 print('It can add and subtract whole numbers from zero to five')
 a = input('Please choose your first number (zero to five): ')
@@ -162,8 +162,29 @@ if a == 'five' and b == 'minus' and c == 'four':
 if a == 'five' and b == 'minus' and c == 'five':
     print("five minus five equals zero")
 
-
 if (not a == 'zero' and not a == 'one' and not a == 'two' and not a == 'three' and not a == 'four' and not a == 'five') or (not c == 'zero' and not c == 'one' and not c == 'two' and not c == 'three' and not c == 'four' and not c == 'five') or (not b == 'plus' and not b == 'minus'):
     print("I am not able to answer this question. Check your input.")
 
+print("Thanks for using this calculator, goodbye :)")
+"""
+
+print('Welcome to this calculator!')
+print('It can add and subtract whole numbers from zero to five')
+a = input('Please choose your first number (zero to five): ')
+b = input('What do you want to do? plus or minus: ')
+c = input('Please choose your second number (zero to five): ')
+
+dict1 = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,-5:'negative five',-4:'negative four',-3:'negative three',-2:'negative two',-1:'negative one',0:'zero',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten'}
+if b=='plus':
+    try:
+        print(f'{a} {b} {c} equals {dict1[dict1[a] + dict1[c]]}')
+    except:
+        print("I am not able to answer this question. Check your input.")
+elif b=='minus':
+    try:
+        print(f'{a} {b} {c} equals {dict1[dict1[a] - dict1[c]]}')
+    except:
+        print("I am not able to answer this question. Check your input.")
+else:
+    print("I am not able to answer this question. Check your input.")
 print("Thanks for using this calculator, goodbye :)")
